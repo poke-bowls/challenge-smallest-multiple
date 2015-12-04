@@ -6,9 +6,32 @@
  * @return { Number }         Lowest Positive Number that is evenly divisible by all numbers
  *                            between 1 and `ceiling`
  */
-module.exports = function( ceiling ) {
-  // do work here
-
-
-  return 0;
+module.exports = function(ceiling) {
+  var range = makeArray(ceiling);
+  calculatedLCM = 1;
+  for (var i = 0; i < arr.length; i++){
+    calculatedLCM = lcmOfTwo(calculatedLCM, range[i]);
+  }
+  return calculatedLCM;
 };
+
+function makeArray (n) {
+  arr = [];
+  for(i = 1; i <= n; i++){
+    var number = 0;
+    number += i;
+    arr.push(number);
+  }
+  return arr;
+}
+
+function gcd (a, b) {
+  return b ? gcd(b, a % b) : Math.abs(a);
+}
+
+function lcmOfTwo(a, b) {
+  return (a * b) / gcd(a, b);
+}
+
+
+
